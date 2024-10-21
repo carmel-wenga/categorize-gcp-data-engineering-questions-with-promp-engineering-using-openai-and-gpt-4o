@@ -1,0 +1,9 @@
+# ignore the configuration file: it contains the openai api key
+.config
+
+# ignore the .env/ folder which is the the python virtual environment
+.env
+
+# ignore useless folders
+./__pycache__/
+./.ipynb_checkpoints/

@@ -1,0 +1,48 @@
+Question #,Statement,My Answers,Expected Answer,Answer Status,Comments,Categories,GCP Services or Tools,Concepts or Topics
+51,"You run a Cloud SQL instance for a business that requires that the database is accessible for transactions. You need to ensure minimal downtime for database transactions. What should you do?
+
+A. Configure replication.
+B. Configure high availability.
+C. Configure backups.
+D. Configure backups and increase the number of backups.",B,B,Correct,"
+A: Incorrect. Replication on Cloud SQL is effective to offload reads. However, it does not support a full read-write database.
+B: Correct. Configuring high availability on Cloud SQL will automatically switch to the secondary instance when the primary instance goes down, thus reducing downtime for the database's users.
+C: Incorrect. Backups are useful to retrieve older data in case of catastrophic failures such as accidental data deletion. However, they don’t provide continuous availability of the database, because restoring the database takes time.
+D: Incorrect. Increasing the number of backups does not impact or improve availability. Although there are more backups, restoring the database in case of failure incurs downtime.
+
+Cloud SQL high availability configuration has a primary and secondary instance. Data updates are visible from both instances. In the event of a database failure, the database engineer does not have to manually restore the database instance. Google Cloud will automatically switch the secondary instance to primary, thus maintaining database availability.","5.5 Maintaining awareness of failures and
+mitigating impact",#EMPTY#,#EMPTY#
+52,"You are running a Dataflow pipeline in production. The input data for this pipeline is occasionally inconsistent. Separately from processing the valid data, you want to efficiently capture the erroneous input data for analysis. What should you do?
+
+A. Re-read the input data and create separate outputs for valid and erroneous data.
+B. Read the data once, and split it into two pipelines, one to output valid data and another to output erroneous data.
+C. Check for the erroneous data in the logs.
+D. Create a side output for the erroneous data.",D,D,Correct,"
+A: Incorrect. Re-reading the input data for processing only erroneous data is not efficient.
+B: Incorrect. Using separate pipelines for the same data (one to compute good data and the other for erroneous data) is not efficient.
+C: Incorrect. Erroneous data is not automatically available in the logs.
+D: Correct. Using side outputs can collect the erroneous data efficiently and is a recommended approach.
+
+The Professional Data Engineer can create Dataflow pipelines to efficiently branch a single transform to output to multiple PCollections. Batch data volumes might be large and streaming data pipelines would be continuous, so re-reading input data is often inefficient or impossible. In such cases, processing can produce multiple outputs.","5.5 Maintaining awareness of failures and
+mitigating impact",#EMPTY#,#EMPTY#
+53,"Your company is very serious about data protection and hence decides to implement the Principle of Least Privilege. What should you do to comply with this policy?
+
+A. Ensure that the users are verified every time they request access, even if they were authenticated earlier.
+B. Ensure that the access permissions are given strictly based on the person’s title and job role.
+C. Give just enough permissions to get the task done. 
+D. When a task is assigned, ensure that it gets assigned to a person with the minimum privileges.",B,C,Incorrect,"
+",#EMPTY#,#EMPTY#,* Understand and Implement the principe of least privileges
+54,"Cymbal Retail uses Google Cloud and has automated repeatable data processing workloads to achieve reliability and cost efficiency. You want out-of-the-box metric collection dashboards and the ability to generate alerts when specific conditions are met. What tool can you use?
+
+A. Cloud Composer
+B. Data Loss Prevention (DLP)
+C. Cloud Monitoring
+D. Data Catalog",C,C,Correct,"
+",#EMPTY#,#EMPTY#,#EMPTY#
+55,"Your company recently migrated to Google Cloud and started using BigQuery. The team members don’t know how much querying they are going to do, and they need to be efficient with their spend. As a Professional Data Engineer, what pricing model would you recommend?
+
+A. Use BigQuery’s on-demand pricing model.
+B. Create a pool of resources using BigQuery Reservations. 
+C. Decide how much compute capacity you need and reserve it using capacity pricing.
+D. Use IAM service to block access to BigQuery till the team figures out how much querying they are going to do.",A,A,Correct,"
+",#EMPTY#,#EMPTY#,#EMPTY#
